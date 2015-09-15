@@ -5,6 +5,8 @@
   	"default": "en-us",
   	"supported": ["en-us"]
   },
+  "callback_url" : "http://1efa3d6a.ngrok.io/auth/weebly/callback",
+  "manage_app_url" : "http://1efa3d6a.ngrok.io/auth/weebly?jwt=:jwt",
   "elements": [
 	{
 	  "path": "files",
@@ -13,7 +15,7 @@
 	  "settings": {
 		"config": {
 		  "external": {
-			  "url": "http://mapjam.com/mymaps",
+			  "url": "http://1efa3d6a.ngrok.io/mymaps",
 			  "label": "Edit Your Map.",
 			  "height":800,
 			  "width":1024
@@ -66,7 +68,7 @@
           	  {
           		"name":"map_url",
           		"label":"Map URL",
-          		"default":"http://www.mapjam.com/world",
+          		"default":"http://1efa3d6a.ngrok.io/world",
           		"type":"string"
           	  }
             ]
