@@ -13,7 +13,7 @@
 	  "settings": {
 		"config": {
 		  "external": {
-			  "url": "http://mapjam.com/mymaps",
+			  "url": "http://localhost:8881/mapjam/weebly/test.html",
 			  "label": "Edit Your Map.",
 			  "height":800,
 			  "width":1024
@@ -29,7 +29,7 @@
               {
                 "name": "map_id",
                 "label": "Map ID",
-                "default": "",
+                "default": "world",
                 "type":"string",
                 "hidden":true
               },
