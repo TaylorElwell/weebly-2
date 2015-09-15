@@ -1,0 +1,78 @@
+{
+  "manifest": "1",
+  "version": "0.0.1",
+  "locale": {
+  	"default": "en-us",
+  	"supported": ["en-us"]
+  },
+  "elements": [
+	{
+	  "path": "files",
+	  "name": "MapJam",
+	  "version": "0.0.1",
+	  "settings": {
+		"config": {
+		  "external": {
+			  "url": "http://mapjam.com/mymaps",
+			  "label": "Edit Your Map.",
+			  "height":800,
+			  "width":1024
+		  },
+		  "autopop": false
+		},
+		"properties": [
+          {
+            "type": "group",
+            "name": "settings",
+            "label": "Settings",
+            "properties": [
+              {
+                "name": "map_id",
+                "label": "Map ID",
+                "default": "",
+                "type":"string",
+                "hidden":true
+              },
+              {
+              	"name":"hide_card",
+              	"label":"hide card",
+              	"default":true,
+              	"type":"toggle",
+              	"hidden":true
+              },
+              {
+              	"name":"height_px",
+              	"label":"height_px",
+              	"default":600,
+              	"type":"int",
+              	"hidden":true
+              },
+              {
+          		"name":"height",
+          		"label":"Height",
+          		"default":"medium",
+          		"type":"select",
+          		"values":["tiny","small","medium","large"]
+          	  },
+          	  {
+          		"name":"zoom",
+          		"label":"Zoom",
+          		"default":1,
+          		"type":"slider",
+          		"step":1,
+          		"min":1,
+          		"max":20
+          	  },
+          	  {
+          		"name":"map_url",
+          		"label":"Map URL",
+          		"default":"http://www.mapjam.com/world",
+          		"type":"string"
+          	  }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
