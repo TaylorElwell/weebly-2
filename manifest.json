@@ -5,8 +5,9 @@
   	"default": "en-us",
   	"supported": ["en-us"]
   },
-  "callback_url" : "http://1efa3d6a.ngrok.io/auth/weebly/callback",
-  "manage_app_url" : "http://1efa3d6a.ngrok.io/auth/weebly?jwt=:jwt",
+  "callback_url" : "http://staging.mapjamsys.com/auth/weebly/callback",
+  "manage_app_url" : "http://staging.mapjamsys.com/auth/weebly?jwt=:jwt",
+  "oauth_final_destination" : "editor",
   "elements": [
 	{
 	  "path": "files",
@@ -15,8 +16,8 @@
 	  "settings": {
 		"config": {
 		  "external": {
-			  "url": "http://1efa3d6a.ngrok.io/mymaps",
-			  "label": "Edit Your Map.",
+			  "url": "http://staging.mapjamsys.com/wh?jwt=:jwt&site_id=:site_id&element_id=:element_id",
+			  "label": "Edit Your Map",
 			  "height":800,
 			  "width":1024
 		  },
@@ -31,7 +32,13 @@
               {
                 "name": "map_id",
                 "label": "Map ID",
-                "default": "",
+                "default": "world",
+                "type":"string"
+              },
+              {
+                "name": "prev_map_id",
+                "label": "Last good Map ID",
+                "default": "world",
                 "type":"string",
                 "hidden":true
               },
@@ -68,7 +75,7 @@
           	  {
           		"name":"map_url",
           		"label":"Map URL",
-          		"default":"http://1efa3d6a.ngrok.io/world",
+          		"default":"http://staging.mapjamsys.com/world",
           		"type":"string"
           	  }
             ]

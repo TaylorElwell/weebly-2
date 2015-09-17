@@ -6,13 +6,12 @@ PlatformElement.extend({
 		//TODO: listen for postMessage events from map jam iframe?
 		//for now, listen for url changes via the onload event?
 		//this.listenTo(this.settings, "change:height", $.proxy(this._onHeightChange, this));
-		//this.listenTo(this.settings, "change:mapURL", $.proxy(this._onMapIdChange, this));
+		//this.listenTo(this.settings, "change:map_id", $.proxy(this._onMapUrlChange, this));
 		//JR: it seems like our element gets recreated anytime anything changes
 		//the above event binding is probably pointless.
 		//trigger manually?
+    this._onMapUrlChange();
 		this._onHeightChange();
-		this._onMapIdChange();
-		this._onMapUrlChange();
 	},
 
 	_onHeightChange:function(event){
@@ -40,40 +39,33 @@ PlatformElement.extend({
 		}
 	},
 
-	//update our map_url property
-	_onMapIdChange:function(event){
-		var url = "http://www.mapjam.com/"+this.settings.get("map_id");
-		//commented to prevent a circular mess. remove comment once we get the id from the iframe
-		//this.settings.set("mapUrl", url);
-	},
-
 	//TEMP: update the map_id property based on the url
 	//this should go away when we can reliably get the id from
 	//the iframe.
-	_onMapUrlChange:function(event){
-		var mapUrl = this.settings.get("map_url");
-		console.log("_onMapUrlChange");
-		if(mapUrl.length > 21 ){
-			//find map_id
-			var id = mapUrl.substr(mapUrl.lastIndexOf("/")+1);
-			if(id != this.settings.get("map_id")){
-				console.log("setting map_id", id);
-				this.settings.set("map_id", id);
-				var self = this;
-				this.settings.save().done(function(){
-					console.log("done saving map_id!");
-					//do we need to call render here??
-					//self.render();
-				});
-			}
-		}
-		//hide the placeholder and show the iframe if map_id is legit
-		if(this.settings.get("map_id") != ""){
-			this.$el.find(".mapjam-placeholder").hide();
-			this.$el.find(".mapjam-iframe").show();
-		} else {
-			this.$el.find(".mapjam-placeholder").show();
-			this.$el.find(".mapjam-iframe").hide();
-		}
+  _onMapUrlChange:function(event){
+		var mapId = this.settings.get("map_id");
+    var prev = this.settings.get("prev_map_id");
+		console.log("_onMapUrlChange: " + mapId + ", prev=" + prev);
+    if (mapId === 'mymaps') {
+      // revert to either the previous map or else the world map view
+      this.settings.set("map_id", prev);
+      this.settings.save().done(function(){
+        console.log("done saving map_id: " + prev);
+        //do we need to call render here??
+        //self.render();
+      });
+    } else {
+      // store this valid map in prev_map_id so we can revert to it if needed
+      this.settings.set("prev_map_id", mapId);
+      var oldUrl = this.settings.get("map_url");
+      var newUrl = oldUrl.substring(0, oldUrl.lastIndexOf('/')) + mapId;
+      console.log('Setting new url: ' + newUrl);
+      this.settings.set("map_url", newUrl);
+      this.settings.save().done(function(){
+        console.log("done saving prev_map_id: " + mapId);
+        //do we need to call render here??
+        //self.render();
+      });
+    }
 	}
 });
