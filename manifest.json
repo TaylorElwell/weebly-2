@@ -5,8 +5,8 @@
   	"default": "en-us",
   	"supported": ["en-us"]
   },
-  "callback_url" : "http://staging.mapjamsys.com/auth/weebly/callback",
-  "manage_app_url" : "http://staging.mapjamsys.com/auth/weebly?jwt=:jwt",
+  "callback_url" : "http://baxford.ngrok.io/auth/weebly/callback",
+  "manage_app_url" : "http://baxford.ngrok.io/auth/weebly",
   "oauth_final_destination" : "editor",
   "elements": [
 	{
@@ -16,7 +16,7 @@
 	  "settings": {
 		"config": {
 		  "external": {
-			  "url": "http://staging.mapjamsys.com/wh?jwt=:jwt&site_id=:site_id&element_id=:element_id",
+			  "url": "http://baxford.ngrok.io/wh?jwt=:jwt",
 			  "label": "Edit Your Map",
 			  "height":800,
 			  "width":1024
@@ -75,7 +75,7 @@
           	  {
           		"name":"map_url",
           		"label":"Map URL",
-          		"default":"http://staging.mapjamsys.com/world",
+          		"default":"http://baxford.ngrok.io/world",
           		"type":"string"
           	  }
             ]
