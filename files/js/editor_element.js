@@ -10,7 +10,7 @@ PlatformElement.extend({
 		//JR: it seems like our element gets recreated anytime anything changes
 		//the above event binding is probably pointless.
 		//trigger manually?
-    this._onMapUrlChange();
+    	this._onMapUrlChange();
 		this._onHeightChange();
 	},
 
@@ -29,12 +29,15 @@ PlatformElement.extend({
 		}
 		console.log("setting height:", h, val);
 		var self = this;
-		if(this.settings.get("height_px" != val)){
+		if(this.settings.get("height_px") != val){
 			this.settings.set("height_px", val);
 			this.settings.save().done(function(){
-				console.log("done saving height_px");
+				console.log("done saving height_px", self.settings.get("height_px"));
 				//need to call render here??
-				//self.render();
+				//JR: it seems like we do, it results in a double render
+				//but without calling render here, the height is not included in the
+				//embed code. ugh.
+				self.render();
 			});
 		}
 	},
@@ -44,28 +47,30 @@ PlatformElement.extend({
 	//the iframe.
   _onMapUrlChange:function(event){
 		var mapId = this.settings.get("map_id");
-    var prev = this.settings.get("prev_map_id");
+    	var prev = this.settings.get("prev_map_id");
 		console.log("_onMapUrlChange: " + mapId + ", prev=" + prev);
-    if (mapId === 'mymaps') {
-      // revert to either the previous map or else the world map view
-      this.settings.set("map_id", prev);
-      this.settings.save().done(function(){
-        console.log("done saving map_id: " + prev);
-        //do we need to call render here??
-        //self.render();
-      });
-    } else {
-      // store this valid map in prev_map_id so we can revert to it if needed
-      this.settings.set("prev_map_id", mapId);
-      var oldUrl = this.settings.get("map_url");
-      var newUrl = oldUrl.substring(0, oldUrl.lastIndexOf('/')) + mapId;
-      console.log('Setting new url: ' + newUrl);
-      this.settings.set("map_url", newUrl);
-      this.settings.save().done(function(){
-        console.log("done saving prev_map_id: " + mapId);
-        //do we need to call render here??
-        //self.render();
-      });
-    }
+	    if (mapId === 'mymaps') {
+	      // revert to either the previous map or else the world map view
+	      this.settings.set("map_id", prev);
+	      this.settings.save().done(function(){
+	        console.log("done saving map_id: " + prev);
+	        //do we need to call render here??
+	        //self.render();
+	      });
+	    } else {
+	      // store this valid map in prev_map_id so we can revert to it if needed
+	      this.settings.set("prev_map_id", mapId);
+	      var oldUrl = this.settings.get("map_url");
+	      var newUrl = oldUrl.substring(0, oldUrl.lastIndexOf('/')+1)+mapId;
+	      console.log('Setting new url: ' + newUrl);
+	      this.settings.set("map_url", newUrl);
+	      var self = this;
+	      this.settings.save().done(function(){
+	        console.log("done saving prev_map_id: " + mapId);
+	        //do we need to call render here??
+	        //JR: calling render here just to make sure things stick. weebly is a bit, wonky.
+	        //self.render();
+	      });
+	    }
 	}
 });
