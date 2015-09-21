@@ -5,8 +5,8 @@
   	"default": "en-us",
   	"supported": ["en-us"]
   },
-  "callback_url" : "http://baxford.ngrok.io/auth/weebly/callback",
-  "manage_app_url" : "http://baxford.ngrok.io/auth/weebly",
+  "callback_url" : "http://staging.mapjamsys.com/auth/weebly/callback",
+  "manage_app_url" : "http://staging.mapjamsys.com/auth/weebly?jwt=:jwt",
   "oauth_final_destination" : "editor",
   "elements": [
 	{
@@ -16,7 +16,7 @@
 	  "settings": {
 		"config": {
 		  "external": {
-			  "url": "http://baxford.ngrok.io/wh?jwt=:jwt",
+			  "url": "http://staging.mapjamsys.com/wh?jwt=:jwt&site_id=:site_id&element_id=:element_id",
 			  "label": "Edit Your Map",
 			  "height":800,
 			  "width":1024
@@ -30,11 +30,35 @@
             "label": "Settings",
             "properties": [
               {
+                "name": "app_url",
+                "label": "Map ID",
+                "default": "http://staging.mapjamsys.com",
+                "type":"string",
+                "hidden": true
+              },
+              {
+                "name": "cdn_url",
+                "label": "Map ID",
+                "default": "//staging.mapjamsys.com/",
+                "type":"string",
+                "hidden": true
+              },
+              {
+                "name": "domain",
+                "label": "Map ID",
+                "default": "staging.mapjamsys.com",
+                "type":"string",
+                "hidden": true
+              },
+
+              {
                 "name": "map_id",
                 "label": "Map ID",
                 "default": "world",
-                "type":"string"
+                "type":"string",
+                "hidden":true
               },
+
               {
                 "name": "prev_map_id",
                 "label": "Last good Map ID",
@@ -42,42 +66,58 @@
                 "type":"string",
                 "hidden":true
               },
-              {
-              	"name":"hide_card",
-              	"label":"hide card",
-              	"default":true,
-              	"type":"toggle",
-              	"hidden":true
-              },
+              
               {
               	"name":"height_px",
               	"label":"height_px",
-              	"default":600,
+              	"default":650,
               	"type":"int",
               	"hidden":true
               },
+
               {
-          		"name":"height",
-          		"label":"Height",
-          		"default":"medium",
-          		"type":"select",
-          		"values":["tiny","small","medium","large"]
+            		"name":"height",
+            		"label":"Height",
+            		"default":"medium",
+            		"type":"select",
+            		"values":["tiny","small","medium","large"]
           	  },
+
           	  {
-          		"name":"zoom",
-          		"label":"Zoom",
-          		"default":1,
-          		"type":"slider",
-          		"step":1,
-          		"min":1,
-          		"max":20
-          	  },
-          	  {
-          		"name":"map_url",
-          		"label":"Map URL",
-          		"default":"http://baxford.ngrok.io/world",
-          		"type":"string"
+            		"name":"zoom",
+            		"label":"Zoom",
+            		"default":0,
+            		"type":"slider",
+            		"step":1,
+            		"min":0,
+            		"max":20
           	  }
+            ]
+          },
+          {
+            "type":"group",
+            "name":"advanced",
+            "label":"Advanced",
+            "properties":[
+              {
+                "name":"hide_card",
+                "label":"Show Content Card",
+                "default":"min",
+                "type":"select",
+                "values":["min","max","none"]
+              },
+              {
+                "name":"lat",
+                "type":"int",
+                "label":"Center Lattitude",
+                "default":0
+              },
+              {
+                "name":"lng",
+                "type":"int",
+                "label":"Center Longitude",
+                "default":0
+              }
             ]
           }
         ]
@@ -85,3 +125,7 @@
     }
   ]
 }
+
+
+
+
