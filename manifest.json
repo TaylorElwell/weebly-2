@@ -31,21 +31,21 @@
             "properties": [
               {
                 "name": "app_url",
-                "label": "Map ID",
+                "label": "Url for Mapjam website",
                 "default": "http://mapjam.com",
                 "type": "string",
                 "hidden": true
               },
               {
                 "name": "cdn_url",
-                "label": "Map ID",
+                "label": "Url for Mapjam geojson CDN",
                 "default": "//mapjam.com/",
                 "type": "string",
                 "hidden": true
               },
               {
                 "name": "domain",
-                "label": "Map ID",
+                "label": "Domian for Mapjam",
                 "default": "mapjam.com",
                 "type": "string",
                 "hidden": true
@@ -59,7 +59,7 @@
               },
               {
                 "name": "prev_map_id",
-                "label": "Last good Map ID",
+                "label": "Previous selected Map ID",
                 "default": "world",
                 "type": "string",
                 "hidden": true
