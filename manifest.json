@@ -94,17 +94,47 @@
                 "min": 0,
                 "max": 20
               },
+
               {
-                "name": "hide_card",
-                "label": "Show Content Card",
-                "default": "min",
-                "type": "select",
-                "values": [
-                  "min",
-                  "max",
-                  "none"
+                "type":"group",
+                "name":"advanced",
+                "label":"Advanced",
+                "properties":[
+                  {
+                    "name":"hide_card",
+                    "label":"Show Content Card",
+                    "default":"min",
+                    "type":"select",
+                    "values":["min","max","none"]
+                  },
+                  {
+                    "name":"override_center",
+                    "label":"Custom Center",
+                    "type":"toggle",
+                    "default":false,
+                    "hidden":true
+                  },
+                  {
+                    "name":"lat",
+                    "type":"int",
+                    "label":"Center Latitude",
+                    "min":-90,
+                    "max": 90,
+                    "default":0,
+                    "hidden":true
+                  },
+                  {
+                    "name":"lng",
+                    "type":"int",
+                    "label":"Center Longitude",
+                    "min": -180,
+                    "max": 180,
+                    "default":0,
+                    "hidden":true
+                  }
                 ]
               }
+
             ]
           }
         ]
