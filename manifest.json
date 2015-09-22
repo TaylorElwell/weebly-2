@@ -33,90 +33,75 @@
                 "name": "app_url",
                 "label": "Map ID",
                 "default": "http://mapjam.com",
-                "type":"string",
+                "type": "string",
                 "hidden": true
               },
               {
                 "name": "cdn_url",
                 "label": "Map ID",
                 "default": "//mapjam.com/",
-                "type":"string",
+                "type": "string",
                 "hidden": true
               },
               {
                 "name": "domain",
                 "label": "Map ID",
                 "default": "mapjam.com",
-                "type":"string",
+                "type": "string",
                 "hidden": true
               },
-
               {
                 "name": "map_id",
                 "label": "Map ID",
                 "default": "world",
-                "type":"string",
-                "hidden":true
+                "type": "string",
+                "hidden": true
               },
-
               {
                 "name": "prev_map_id",
                 "label": "Last good Map ID",
                 "default": "world",
-                "type":"string",
-                "hidden":true
-              },
-              
-              {
-              	"name":"height_px",
-              	"label":"height_px",
-              	"default":650,
-              	"type":"int",
-              	"hidden":true
-              },
-
-              {
-            		"name":"height",
-            		"label":"Height",
-            		"default":"medium",
-            		"type":"select",
-            		"values":["tiny","small","medium","large"]
-          	  },
-
-          	  {
-            		"name":"zoom",
-            		"label":"Zoom",
-            		"default":0,
-            		"type":"slider",
-            		"step":1,
-            		"min":0,
-            		"max":20
-          	  }
-            ]
-          },
-          {
-            "type":"group",
-            "name":"advanced",
-            "label":"Advanced",
-            "properties":[
-              {
-                "name":"hide_card",
-                "label":"Show Content Card",
-                "default":"min",
-                "type":"select",
-                "values":["min","max","none"]
+                "type": "string",
+                "hidden": true
               },
               {
-                "name":"lat",
-                "type":"int",
-                "label":"Center Lattitude",
-                "default":0
+                "name": "height_px",
+                "label": "height_px",
+                "default": 650,
+                "type": "int",
+                "hidden": true
               },
               {
-                "name":"lng",
-                "type":"int",
-                "label":"Center Longitude",
-                "default":0
+                "name": "height",
+                "label": "Height",
+                "default": "medium",
+                "type": "select",
+                "values": [
+                  "tiny",
+                  "small",
+                  "medium",
+                  "large"
+                ]
+              },
+              {
+                "name": "zoom",
+                "label": "Zoom",
+                "default": 0,
+                "type": "slider",
+                "step": 1,
+                "min": 0,
+                "max": 20
+              },
+              {
+                "name": "hide_card",
+                "label": "Show Content Card",
+                "default": "min",
+                "type": "select",
+                "values": [
+                  "min",
+                  "max",
+                  "none"
+                ]
               }
             ]
           }

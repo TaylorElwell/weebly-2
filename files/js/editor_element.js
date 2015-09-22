@@ -10,7 +10,7 @@ PlatformElement.extend({
 		//JR: it seems like our element gets recreated anytime anything changes
 		//the above event binding is probably pointless.
 		//trigger manually?
-    	this._onMapUrlChange();
+    this._onMapUrlChange();
 		this._onHeightChange();
 	},
 
