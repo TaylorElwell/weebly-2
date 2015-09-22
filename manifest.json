@@ -5,8 +5,8 @@
   	"default": "en-us",
   	"supported": ["en-us"]
   },
-  "callback_url" : "http://staging.mapjamsys.com/auth/weebly/callback",
-  "manage_app_url" : "http://staging.mapjamsys.com/auth/weebly?jwt=:jwt",
+  "callback_url" : "http://mapjam.com/auth/weebly/callback",
+  "manage_app_url" : "http://mapjam.com/auth/weebly?jwt=:jwt",
   "oauth_final_destination" : "editor",
   "elements": [
 	{
@@ -16,7 +16,7 @@
 	  "settings": {
 		"config": {
 		  "external": {
-			  "url": "http://staging.mapjamsys.com/wh?jwt=:jwt&site_id=:site_id&element_id=:element_id",
+			  "url": "http://mapjam.com/wh?jwt=:jwt&site_id=:site_id&element_id=:element_id",
 			  "label": "Edit Your Map",
 			  "height":800,
 			  "width":1024
@@ -32,21 +32,21 @@
               {
                 "name": "app_url",
                 "label": "Map ID",
-                "default": "http://staging.mapjamsys.com",
+                "default": "http://mapjam.com",
                 "type":"string",
                 "hidden": true
               },
               {
                 "name": "cdn_url",
                 "label": "Map ID",
-                "default": "//staging.mapjamsys.com/",
+                "default": "//mapjam.com/",
                 "type":"string",
                 "hidden": true
               },
               {
                 "name": "domain",
                 "label": "Map ID",
-                "default": "staging.mapjamsys.com",
+                "default": "mapjam.com",
                 "type":"string",
                 "hidden": true
               },
