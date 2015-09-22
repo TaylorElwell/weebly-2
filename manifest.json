@@ -19,7 +19,9 @@
 			  "url": "http://mapjam.com/wh?jwt=:jwt&site_id=:site_id&element_id=:element_id",
 			  "label": "Edit Your Map",
 			  "height":800,
-			  "width":1024
+			  "width":1024,
+              "modal": true,
+              "fullscreen": true
 		  },
 		  "autopop": false
 		},
