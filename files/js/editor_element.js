@@ -12,7 +12,22 @@ PlatformElement.extend({
 		//trigger manually?
     this._onMapUrlChange();
 		this._onHeightChange();
-	},
+    this._onPopupChange();
+  },
+
+  _onPopupChange: function (event) {
+    var self = this;
+    var ca = this.settings.get("content_action");
+    var p = this.settings.get("popup");
+    var s = p == 'side' ? 'side_popup' : 'zoom_and_pan';
+    if (ca !== s) {
+      this.settings.set("content_action", s);
+      console.log(this.settings);
+      this.settings.save().done(function () {
+        self.render();
+      });
+    }
+  },
 
 	_onHeightChange:function(event){
 		console.log("_onHeightChange:", event);
@@ -33,10 +48,6 @@ PlatformElement.extend({
 			this.settings.set("height_px", val);
 			this.settings.save().done(function(){
 				console.log("done saving height_px", self.settings.get("height_px"));
-				//need to call render here??
-				//JR: it seems like we do, it results in a double render
-				//but without calling render here, the height is not included in the
-				//embed code. ugh.
 				self.render();
 			});
 		}
@@ -48,7 +59,7 @@ PlatformElement.extend({
   _onMapUrlChange:function(event){
 		var mapId = this.settings.get("map_id");
     	var prev = this.settings.get("prev_map_id");
-		console.log("_onMapUrlChange: " + mapId + ", prev=" + prev);
+		  console.log("_onMapUrlChange: " + mapId + ", prev=" + prev);
 	    if (mapId === 'mymaps') {
 	      // revert to either the previous map or else the world map view
 	      this.settings.set("map_id", prev);

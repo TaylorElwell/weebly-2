@@ -104,6 +104,23 @@
                   "max",
                   "none"
                 ]
+              },
+              {
+                "name": "content_action",
+                "label": "Popup behaviour",
+                "default": "side_popup",
+                "type": "string",
+                "hidden": true
+              },
+              {
+                "name": "popup",
+                "label": "Popup",
+                "default": "side",
+                "type": "select",
+                "values": [
+                  "side",
+                  "hover"
+                ]
               }
             ]
           }
