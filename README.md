@@ -1,9 +1,9 @@
 # weebly
 Weebly
 
-Development consists of modifying 
-- manifest.json, 
-- files/js/editor_element.js 
+Development consists of modifying
+- manifest.json,
+- files/js/editor_element.js
 - files/html/element.tpl
 
 The doco from Weebly is quite hard to understand! https://dev.weebly.com/get-started-with-developing-apps.html
@@ -11,7 +11,7 @@ The doco from Weebly is quite hard to understand! https://dev.weebly.com/get-sta
 # Communication between Weebly and Mapjam is as follows:
 
 - Weebly editor element accepts input from the user and stores values in a backbone object called ‘settings’
-- On change of these settings, the editor_element updates some values and calls render() if needed. This causes the mustache template in files/html/element.tpl to be re-rendered. 
+- On change of these settings, the editor_element updates some values and calls render() if needed. This causes the mustache template in files/html/element.tpl to be re-rendered.
 - The element.tpl mustache template simply writes our embed code onto the weebly web page wherever it is inserted.
 - If a user actually edits a map, we open mapjam.com within an iFrame. This uses the postMessage API to communicate between three-oh and weebly.
 - Weebly passes a JWT to mapjam and we decode this to find the current user. We then store the elementID (weebly identifier for the selected page element), weeblyUserId, and the selected Map Key in Mongo.
