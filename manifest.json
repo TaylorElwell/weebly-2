@@ -1,6 +1,6 @@
 {
   "manifest": "1",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "locale": {
     "default": "en-us",
     "supported": ["en-us"]
@@ -12,7 +12,7 @@
   {
     "path": "files",
     "name": "MapJam",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "settings": {
     "config": {
       "external": {
@@ -41,7 +41,7 @@
               {
                 "name": "cdn_url",
                 "label": "Url for Mapjam geojson CDN",
-                "default": "//mapjam.com/",
+                "default": "https://mapjam.com/",
                 "type": "string",
                 "hidden": true
               },
