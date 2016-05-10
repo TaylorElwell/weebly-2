@@ -41,7 +41,7 @@
               {
                 "name": "cdn_url",
                 "label": "Url for Mapjam geojson CDN",
-                "default": "https://mapjam.com/",
+                "default": "//mapjam.com/",
                 "type": "string",
                 "hidden": true
               },
