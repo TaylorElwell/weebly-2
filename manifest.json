@@ -1,6 +1,6 @@
 {
   "manifest": "1",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "locale": {
     "default": "en-us",
     "supported": ["en-us"]
@@ -12,7 +12,7 @@
   {
     "path": "files",
     "name": "MapJam",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "settings": {
     "config": {
       "external": {
